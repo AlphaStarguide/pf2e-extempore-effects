@@ -20,7 +20,7 @@ appear. Clicking that option will grant a new Effect to all controlled tokens.
 
 The Effect will have its name, description, level, traits, etc. match the message's item ("item" here being a spell,
 an action, a feat, a weapon, etc.). The duration will usually fit if possible (required some hardcoding and doesn't
-cover all bases).
+cover all bases).  Afflictions will always start at Stage 1 and will expire after Stage 1's duration has passed.
 
 The image will fit the item too, but not if it's a "default image" (like the default feat icon or
 any of the simple 1/2/3-action icons). To avoid having several Effects with the same image (and avoid the boring
@@ -30,6 +30,14 @@ simple colored image.
 As a bonus feature, right-clicking actual Effect messages will display an "Apply Effect" option to just apply that same
 effect to the controlled token. This is just a quality-of-life feature.
 
+### Affliction automation (very partial)
+
+When you create an effect from an affliction chat message - such as the one from Scalathrax Venom - the module will
+attempt to give the effect a list of stages equal to the affliction's stage count, set the initial stage to 1, set
+the duration to the first stage's duration, and set the expiration to the end of the turn.  These, altogether, **do not
+automate affliction tracking** - but they should at least help keep track of things nicely until the core system support
+is added.
+
 ### Shift+clicking the "Extempore Effect" option, to also open the effect's sheet
 If you hold the Shift button, the effect's sheet will be opened up for you to see and edit, after being applied.
 You can configure to use Ctrl instead of Shift, or to disable this behavior, in the module settings.
@@ -37,7 +45,6 @@ You can configure to use Ctrl instead of Shift, or to disable this behavior, in 
 This is useful if you want to quickly edit the effect - for example:
 
 - Rename Mirror Image to "Effect: Mirror Image **(3)**" **(note:  less needed now that we have core Counter support)**
-- Rename Mummy Rot to "Effect: Mummy Rot **(stage 1)**" **(note:  less needed now that we have core Counter support)**
 - Change Steal Shadow's duration from Unlimited to 2 hours.
 - Change Arsenic's image from the picture of a powder to a picture of deadly poison.
 
@@ -46,16 +53,13 @@ You can shift+click an existing effect icon in the panel that appears in the top
 controlling a token.  This will open the sheet of that effect/condition, allowing you to read it and edit it.  Useful if
 you want to get a refresher about its rules, or to edit a small detail about it.
 
+This is less useful now that the core pf2e system allows editing effects from the effects panel.
+
 ### Ctrl+Shift+E (editable) keybinding, to create an empty effect
 This new keybinding, "Quick create empty effect", will do something similar to the Extempore Effect except with fully
 empty contents (not based on any message), also immediately opening the sheet for you to edit.  The name will be
 untitled and the image will be a random icon (the randomness depends on screen position, so if you don't pan or zoom
 around you can keep creating random effects with the same icon, which is sometimes handy).
-
-### "Hidden from player" toggle for effects
-This feature was removed from the module, because now it's [part of the core system](https://github.com/foundryvtt/pf2e/pull/4608) :]
-
-(migration will happen for any users who relied on this module until now)
 
 ### Notifications for expired effects
 By default, this will only notify the GM about secret (unidentified) effects, though there is a setting to make it
@@ -63,16 +67,34 @@ notify for all effects. When it triggers, it will both create a notification and
 effect expired, what its duration was, which actor it applied to, and so on.  If you have the PF2E automation setting
 for "remove expired effects" turned on, then this message will also include a button to reapply the just-removed effect.
 
+Note that this will not work for tiny 1-round time changes (which happens in combat), because of technical difficulties.
+However, this is probably not a problem for you - if you have an effect with a duration measured in rounds, you probably
+aren't going to forget about it.
 
-# Demos
+### Pop-up when effects expire, to stop advancing time
+Optional setting (disabled by default), "Pause clock advancement to first expired effect".  You can choose to limit it
+only to unidentified (secret) effects, too.  When an effect expires, the clock will stop advancing until you click one
+of the buttons:  revert to initial time (undo advancement), stop here, or continue moving time forward.
 
-(These gifs are slightly outdated;  the option name changed from "Cause an Effect" to "Extempore Effect", and conditions
-no longer tick up-and-down on click.)
+# Settings & Extras
 
-### Extempore Effects
+### Secret effects - hold Alt/Ctrl to create an unidentified effect or change the default behavior in the setting
 
-![](metadata/ee_demo_1.gif)
+The "Create unidentified effects by default" setting can be used to change this default behavior, in which case all new
+extempore effects will be unidentified *unless* you hold Alt/Ctrl.
 
-### Shift+clicking
+### Random abstract color images for default-image effects
 
-![](metadata/shift_click_effect_panel_demo.gif)
+A lot of pf2e items, feats, features, etc have no image, so instead of using that uninteresting default icon this module
+will pick a random abstract color image from the core foundry magic icons.  You can change this behavior with the
+"Prefer random images over default images" setting.
+
+### Shorter "stage" badges
+
+The setting called 'Shorten "Stage 2" to e.g. "\[2/6\]" in effect badges' will do... that.  It may be useful if you use
+particular CSS themes that have less space for text in them (in the top right effects area).
+
+
+# Demo gif
+
+![](metadata/ee_demo_3.gif)

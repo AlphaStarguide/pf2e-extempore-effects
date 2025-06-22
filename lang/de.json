@@ -1,0 +1,45 @@
+{
+  "pf2e-extempore-effects": {
+    "hiddenFromPlayerText": "Vor dem Spieler verborgen?",
+    "openSheetInstructionShift": "[Umschalt + Links-Klick] Bogen öffnen",
+    "openSheetInstructionCtrl": "[Steuerung + Linksklick] Bogen öffnen",
+    "contextMenuApplyEffect": "Effekt anwenden",
+    "addedPrefixToEffectName": "Effekt: ",
+    "addedPrefixToEffectDescription": "<h2>(Generierter Effekt)</h2>\n",
+    "settings": {
+      "quick-add-empty-effect": {
+        "name": "Schnell leeren Effekt hinzufügen",
+        "hint": "Erstelle einen neuen, leeren Effekt mit einem zufälligen Symbol, angewendet auf das aktuell ausgewählte Token"
+      },
+      "open-effect-sheet-shortcut": {
+        "name": "Tastenkombination zum Öffnen des Effektbogens",
+        "hint": "Wenn nicht deaktiviert, kannst du dies verwenden, um den Effektbogen beim Erstellen eines Improvisierten Effekts und bei der Verwendung des Effekt-Panels zu öffnen.",
+        "choice_shift_left_click": "Umschalt + Links-Klick",
+        "choice_ctrl_left_click": "Strg + Links-Klick",
+        "choice_disabled": "Deaktiviert"
+      },
+      "notifications-for-expired-effects": {
+        "name": "Benachrichtigungen für abgelaufene Effekte",
+        "hint": "Effekte, die ablaufen, senden eine Benachrichtigung und eine Chat-Nachricht als Erinnerung",
+        "choice_all_effects": "Alle Effekte",
+        "choice_only_unidentified": "Nur geheime (unidentifizierte) Effekte",
+        "choice_disabled": "Deaktiviert"
+      },
+      "randomize-image-if-default": {
+        "name": "Zufällige Bilder gegenüber Standardbildern bevorzugen",
+        "hint": "Standardmäßig aktiviert.  Wenn ein Effekt aus einer Nachricht erstellt wird, die einen Gegenstand, aber keinen Akteur hat (oder einen Akteur mit\n der Standardgrafik) und dieser Gegenstand eine Standardgrafik hat, wähle stattdessen ein zufälliges, farbenfrohes Effektbild."
+      },
+      "hidden-by-default": {
+        "hint": "Standardmäßig deaktiviert.  Wenn als Spielleiter ein Effekt mit dem Modul erstellt wird, wird er nicht standardmäßig als \"unidentifiziert\" (geheim) gesetzt. \nDas Halten der Strg/Alt-Taste beim Erstellen eines Effekts kehrt dies um (macht es standardmäßig geheim).",
+        "name": "Standardmäßig unidentifizierte Effekte erstellen"
+      }
+    },
+    "errorMultipleTokensCustomEffect": "Du musst ein Token auswählen, um einen neuen benutzerdefinierten Effekt anzuwenden.",
+    "errorNoTokensSelected": "Du musst Token auswählen, um den Effekt anzuwenden.",
+    "errorItemNotFound": "Gegenstand in PF2e-Nachricht nicht gefunden.",
+    "contextMenuExtemporeEffect": "Improvisierter Effekt",
+    "addedPrefixToExpendedEffectName": "Verbraucht: ",
+    "descriptionOfQuickUntitledEffect": "<h2>(Generierter Effekt)</h2>\nSchreibe hier hinein, was du möchtest!",
+    "nameOfQuickUntitledEffect": "Schneller_unbetitelter_Effekt"
+  }
+}
